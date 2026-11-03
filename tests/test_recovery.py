@@ -35,7 +35,7 @@ class RunReliabilityTests(unittest.TestCase):
     def test_resume_rejects_plan_mutation(self):
         with tempfile.TemporaryDirectory() as tmp:
             run(mode="mock", output=tmp, repeats=1, limit=2)
-            with self.assertRaisesRegex(ValueError, "plan"):
+            with self.assertRaisesRegex(ValueError, "Resume refused"):
                 run(mode="mock", output=tmp, repeats=2, limit=2, resume=True)
 
     def test_interruption_preserves_completed_rows(self):
