@@ -99,3 +99,18 @@ Interpret law in light of the relevant facts, dates, amendments and case law. A 
 Contributions and methodological critique are welcome. See [contributing](CONTRIBUTING.md).
 
 License: Apache-2.0 (code). Check redistribution rights for independently sourced data; this pilot's prompts are project-authored drafts.
+
+## Campaign reliability and pilot validity (v0.1.1)
+
+Preview the number of inference and judge calls without any network access:
+
+    eurobiasbench preflight --mode mock
+    eurobiasbench preflight --mode live --limit 2 --repeats 1
+
+The second command rejects placeholder model IDs until config files contain actual identifiers. Choose a *fresh* output directory for each new campaign. To continue an interrupted campaign using exactly the same dataset, configuration and generation parameters:
+
+    eurobiasbench run --mode live --output results/live --resume
+
+Resuming rejects changes in the run fingerprint and does not silently overwrite completed answers. For each axis, reporting now includes case-clustered descriptive 95% bootstrap intervals and separate evaluations of five rubric dimensions. These intervals reflect only draft-case sampling, not external scientific validation.
+
+**Quality-control hold:** all 60 situations remain unvalidated drafts; no A/B comparison is yet approved as evidence of a cultural bias. Review [the pilot's known risks](docs/pilot_quality_review.md) before publishing any comparative results.

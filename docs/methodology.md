@@ -56,3 +56,7 @@ Never include identifiable persons' private information in scenarios or logs. Pu
 Do not optimize patches using the same data on which their benefit will be claimed. Preserve a sealed held-out evaluation set. Compare identical checkpoint + prompt, reference LoRA/DPO and localized edits with matched compute where feasible; test independent reasoning, knowledge, safety and response quality regressions.
 
 **Research claims are prospective. v0.1 contains no human validation and no model evaluations by default.**
+
+## Pair metadata and comparability (pilot revision)
+
+Each public pilot case has a pair_type (position_swap, external_actor_swap or legal_dimension_swap), review_status, and paired_difference_interpretable=false. These are **quality metadata**, not validated controls. The reported signed and absolute A/B rating gaps are descriptive diagnostics only; **none of the initial pairs are approved as causal tests of cultural bias**. A future release must validate evidence symmetry, question specificity and legal gold standards independently before promoting any comparison to a scientific claim. See [pilot quality review](pilot_quality_review.md).

@@ -15,3 +15,6 @@ jobs:
       - run: eurobiasbench validate --pilot
       - run: eurobiasbench run --mode mock --limit 2 --repeats 1 --output results/ci
       - run: eurobiasbench report --input results/ci
+      - run: eurobiasbench preflight --mode mock --limit 2 --repeats 1
+      - run: eurobiasbench run --mode mock --limit 2 --repeats 1 --output results/recovery
+      - run: eurobiasbench run --mode mock --limit 2 --repeats 1 --output results/recovery --resume
