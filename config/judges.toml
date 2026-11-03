@@ -1,0 +1,13 @@
+# Distinct model IDs are required in live mode; different model families preferred.
+# For authenticated services optionally set api_key_env to an environment variable name.
+[[judges]]
+id = "judge_a"
+model = "REPLACE_WITH_JUDGE_A_ID"
+base_url = "http://127.0.0.1:8011/v1"
+max_tokens = 512
+
+[[judges]]
+id = "judge_b"
+model = "REPLACE_WITH_JUDGE_B_ID"
+base_url = "http://127.0.0.1:8012/v1"
+max_tokens = 512

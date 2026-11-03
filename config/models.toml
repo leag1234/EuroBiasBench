@@ -1,0 +1,19 @@
+# Edit model IDs and local OpenAI-compatible server URLs before --mode live.
+# Separate local backends can use vLLM or llama.cpp, depending on model support.
+[[models]]
+id = "qwen"
+model = "REPLACE_WITH_QWEN_CHECKPOINT_ID"
+base_url = "http://127.0.0.1:8001/v1"
+max_tokens = 768
+
+[[models]]
+id = "llama"
+model = "REPLACE_WITH_LLAMA_CHECKPOINT_ID"
+base_url = "http://127.0.0.1:8002/v1"
+max_tokens = 768
+
+[[models]]
+id = "mistral"
+model = "REPLACE_WITH_MISTRAL_CHECKPOINT_ID"
+base_url = "http://127.0.0.1:8003/v1"
+max_tokens = 768
