@@ -1,4 +1,4 @@
-"""Descriptive reports and targeted human audit queue (not a certification)."""
+"""Descriptive reports, case-clustered uncertainty, and targeted audit samples."""
 from __future__ import annotations
 
 import csv
@@ -10,6 +10,8 @@ from statistics import mean
 from typing import Any
 
 from .core import AXES
+from .engine import METRICS
+from .statistics import bootstrap_case_mean
 
 
 def report(directory: str, *, audit_fraction: float = 0.1) -> dict[str, Any]:
@@ -20,7 +22,10 @@ def report(directory: str, *, audit_fraction: float = 0.1) -> dict[str, Any]:
     rows = [json.loads(line) for line in (folder / "responses.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
     if not rows:
         raise ValueError("No responses found")
-    groups: dict[tuple[str, str], list[float]] = defaultdict(list)
+    if manifest.get("status") != "complete":
+        raise ValueError("Run not complete. Resume with eurobiasbench run --resume before reporting.")
+
+    clusters: dict[tuple[str, str, str], dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))
     pairs: dict[tuple[str, str, str, int], float] = {}
     axis_by_case = {r["case_id"]: r["axis"] for r in rows}
     disagreement_count = 0
@@ -34,11 +39,12 @@ def report(directory: str, *, audit_fraction: float = 0.1) -> dict[str, Any]:
             disagreement_count += 1
         if abs(a - b) >= 2 or any(item["uncertain"] for item in ratings):
             flag.add(index)
-        average = (a + b) / 2
-        groups[(row["model_id"], row["axis"])].append(average)
-        pairs[(row["model_id"], row["case_id"], row["variant"], row["repeat"])] = average
-    rng = random.Random(20261103)
-    random_indices = set(rng.sample(range(len(rows)), k=round(len(rows) * audit_fraction)))
+        for metric in METRICS:
+            value = mean(item["scores"][metric] for item in ratings)
+            clusters[(row["model_id"], row["axis"], metric)][row["case_id"]].append(value)
+        pairs[(row["model_id"], row["case_id"], row["variant"], row["repeat"])] = mean((a, b))
+
+    random_indices = set(random.Random(20261103).sample(range(len(rows)), k=round(len(rows) * audit_fraction)))
     all_flags = flag | random_indices
     with (folder / "human_audit_queue.csv").open("w", encoding="utf-8", newline="") as stream:
         fields = ["case_id", "axis", "model_id", "variant", "repeat", "prompt",
@@ -58,35 +64,54 @@ def report(directory: str, *, audit_fraction: float = 0.1) -> dict[str, Any]:
                 "reason": "uncertain_or_large_disagreement" if index in flag else "random_sample",
                 "human_score": "", "human_notes": "",
             })
-    models = sorted({m for m, _ in groups})
-    axis_means = {
-        m: {a: round(mean(v), 3) for (mm, a), v in sorted(groups.items()) if mm == m}
-        for m in models
+
+    models = sorted({model for model, _, _ in clusters})
+    estimates = {
+        model: {
+            axis: {
+                metric: bootstrap_case_mean(clusters[(model, axis, metric)])
+                for metric in METRICS if (model, axis, metric) in clusters
+            }
+            for axis in AXES if (model, axis, "axis_score") in clusters
+        }
+        for model in models
     }
-    gaps: dict[tuple[str, str], list[float]] = defaultdict(list)
+    axis_means = {
+        model: {axis: values["axis_score"]["mean"] for axis, values in axes.items()}
+        for model, axes in estimates.items()
+    }
+    absolute: dict[tuple[str, str], list[float]] = defaultdict(list)
+    signed: dict[tuple[str, str], list[float]] = defaultdict(list)
     for (model, case, variant, rep), value in pairs.items():
         if variant != "a":
             continue
         other = pairs.get((model, case, "b", rep))
         if other is not None:
-            gaps[(model, axis_by_case[case])].append(abs(value - other))
-    paired_gaps = {
-        model: {axis: round(mean(v), 3) for (m, axis), v in sorted(gaps.items()) if m == model}
-        for model in models
-    }
+            absolute[(model, axis_by_case[case])].append(abs(value - other))
+            signed[(model, axis_by_case[case])].append(value - other)
+
+    def summarize_gaps(source: dict[tuple[str, str], list[float]]) -> dict[str, dict[str, float]]:
+        return {
+            model: {axis: round(mean(v), 4) for (m, axis), v in sorted(source.items()) if m == model}
+            for model in models
+        }
+
     summary = {
         "synthetic": manifest["synthetic"], "response_count": len(rows),
         "human_audit_queue_count": len(all_flags),
-        "judge_disagreement_rate": disagreement_count / len(rows),
+        "random_audit_sample_count": len(random_indices),
+        "judge_disagreement_rate": round(disagreement_count / len(rows), 4),
         "axis_score_mean_by_model": axis_means,
-        "paired_absolute_gap_by_model": paired_gaps,
+        "case_clustered_estimates_by_model": estimates,
+        "paired_absolute_gap_by_model": summarize_gaps(absolute),
+        "paired_signed_gap_a_minus_b_by_model": summarize_gaps(signed),
+        "caveat": "Bootstrap intervals quantify sampling variation across draft cases only, not label or legal uncertainty.",
     }
     (folder / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = [
         "# EuroBiasBench v0.1 — exploratory run", "",
         "Mode: " + ("SYNTHETIC MOCK" if manifest["synthetic"] else "live (unvalidated LLM judge ratings)"),
-        "",
-        f"Responses: {len(rows)}. Human audit queue: {len(all_flags)}.",
+        "", f"Responses: {len(rows)}. Human audit queue: {len(all_flags)}.",
         f"Judge axis-score disagreement: {disagreement_count / len(rows):.1%}.", "",
     ]
     if manifest["synthetic"]:
@@ -94,19 +119,28 @@ def report(directory: str, *, audit_fraction: float = 0.1) -> dict[str, Any]:
     else:
         lines += ["> Automated grades have not been calibrated against human ratings.", ""]
     lines += [
-        "## Average axis score, out of 4 (descriptive only)", "",
+        "## Axis score, mean of case means (0–4)", "",
         "| Model | " + " | ".join(AXES) + " |",
         "| --- | " + " | ".join("---:" for _ in AXES) + " |",
     ]
     for model, scores in axis_means.items():
         lines.append("| " + model + " | " + " | ".join(str(scores.get(a, "—")) for a in AXES) + " |")
+    lines += ["", "## Case-clustered bootstrap intervals (95%, descriptive only)", "",
+              "| Model | Axis | Cases | Mean | Percentile interval |",
+              "| --- | --- | ---: | ---: | --- |"]
+    for model, axes in estimates.items():
+        for axis, scores in axes.items():
+            value = scores["axis_score"]
+            ci = value["ci95"]
+            lines.append(f"| {model} | {axis} | {value['case_count']} | {value['mean']} | {str(ci) if ci else 'Not estimated (<3 cases)'} |")
     lines += [
-        "", "## Limits", "",
-        "- Scoring is exploratory and not certification of EU law or political neutrality.",
-        "- Pairwise score differences do not by themselves demonstrate bias.",
-        "- Facts may justify asymmetric conclusions.",
-        "- Audit a random sample and all important disagreements; measure human agreement.",
-        "- Use a held-out benchmark for later weight editing and report regression tests.",
+        "", "## Interpretation safeguards", "",
+        "- These intervals only resample draft cases; they do not validate the judge, legal claims, or sampling representativeness.",
+        "- Repeats and both variants are clustered within each case, not counted as independent observations.",
+        "- Signed A-minus-B differences are diagnostics, not direct evidence of any country's political bias.",
+        "- Do not aggregate axes to conceal failures in rights or law.",
+        "- Use independent, blind human double annotation with legal expertise for hard cases.",
+        "- Retain sealed held-out cases when subsequently editing model weights.",
         "",
     ]
     (folder / "report.md").write_text("\n".join(lines), encoding="utf-8")
