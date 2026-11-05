@@ -6,6 +6,12 @@ Status: **v0.1 experimental pilot — not validated, not certification**.
 
 EuroBiasBench does **not** attempt to make models support the European Union, and does not define a single correct political opinion. Criticism of EU institutions, European integration, governments and policies is legitimate speech. The EU-level frame is anchored in the Treaties and the Charter of Fundamental Rights, not in national cultural profiles.
 
+## Pilot evidence update — 5 November 2026
+
+**Preliminary operator-reported results:** five independent LLM judges showed low inter-judge agreement (Krippendorff's alpha ≈ 0.33) and markedly different scoring severity on the same Run 002 responses. Within-judge repeatability does not establish correctness; absolute ratings are **not a validated EU alignment score**. The 60 scenario pairs and EU legal anchors still require review.
+
+Read the [published preliminary findings and reduced human-calibration plan](https://github.com/leag1234/EuroBiasBench/blob/main/docs/pilot-findings-2026-11-05.md). The next proposed step is source/question review and a **small double-blind sample of 24–30 answers**, with 6–12 additional targeted diagnostics only if useful, **not** a mandatory 150-answer annotation project. No additional candidate model inference is proposed yet.
+
 ## Research questions
 
 1. Do open-weight model families exhibit systematic differences in justified refusals, factual accuracy, treatment of legitimate opposing arguments, and applicable legal framing?
