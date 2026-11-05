@@ -9,6 +9,8 @@ EuroBiasBench evaluates the behavior of open-weight language models against an *
 
 The data below summarize an infrastructure partner's report dated 5 November 2026. **The underlying response-level archives and calculations have not been independently reviewed as part of this GitHub publication.** This note intentionally excludes raw responses and personally identifiable information.
 
+> **Protocol decision (5 November 2026):** The provisional 24–30-response proposal below has been **superseded** by a fixed **25-response, two-rater** calibration pilot (50 independent annotations). No extra diagnostic sample is authorized at this stage. See [the current protocol](human-calibration-pilot-25.md) and [Issue #8](https://github.com/leag1234/EuroBiasBench/issues/8). Community participation will be planned only after this pilot is analyzed. No new model inference is proposed.
+
 ## Pilot design and execution
 
 The initial pilot has 60 draft scenarios, each with two French-language prompts (120 prompts), evaluated with three candidate models and three repetitions. The operator reported two complete candidate-generation campaigns on 4 November 2026, each producing 1,080 answers.
