@@ -12,7 +12,7 @@ This is a meaningful **negative methodological result**: agreement of AI graders
 
 **[Read the full preliminary findings, methods caveats, and low-burden next steps](docs/pilot-findings-2026-11-05.md)**
 
-The recommended next step is **not another large inference run**. It is to review the benchmark's legal anchors and question pairs, then begin with **24–30 double-blind human-rated responses**, optionally plus 6–12 separate diagnostic examples. That is a small *calibration pilot*, not a sufficient human gold standard for publication.
+The next step is **a fixed 25-response human calibration pilot**: two independent blinded reviewers assess each of 25 distinct stored Run 002 answers (**50 ratings total**), with specific EU legal references prepared for relevant cases. **No new candidate-model inference** is requested. [Read the detailed 25-response protocol](docs/human-calibration-pilot-25.md) and [track the work in Issue #8](https://github.com/leag1234/EuroBiasBench/issues/8). This pilot tests annotation feasibility, not a publishable alignment score. **Community recruitment is a later phase**, contingent on the pilot's findings.
 
 ## Research principles
 
