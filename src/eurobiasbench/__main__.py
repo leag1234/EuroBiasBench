@@ -24,6 +24,10 @@ def main() -> None:
         from .discovery import cli
         cli(sys.argv[2:])
         return
+    if len(sys.argv) > 1 and sys.argv[1] == "triage":
+        from .triage import main as triage_main
+        triage_main(sys.argv[2:])
+        return
     parser = argparse.ArgumentParser(prog="eurobiasbench")
     commands = parser.add_subparsers(dest="command", required=True)
     check = commands.add_parser("validate", help="Check dataset schema")
