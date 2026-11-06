@@ -36,6 +36,7 @@ Researchers should be able to explore topics from **any period, geographical reg
 - [Architecture, scientific rules and staged roadmap](docs/global-discovery-roadmap.md)
 - [Automated Discovery POC — PR #9](https://github.com/leag1234/EuroBiasBench/pull/9) and [bounded live screening — issue #10](https://github.com/leag1234/EuroBiasBench/issues/10)
 - [First bounded real discovery screening: 100 candidate topics, no model inference](docs/discovery-run-001-2026-11-06.md)
+- [Offline re-triage of the same 100 subjects: six unverified source-review cues, no inference](docs/discovery-offline-triage-2026-11-06.md)
 - [Independent evidence dossier design — issue #11](https://github.com/leag1234/EuroBiasBench/issues/11), [worldwide coverage audit — issue #12](https://github.com/leag1234/EuroBiasBench/issues/12), [future model tests — issue #13](https://github.com/leag1234/EuroBiasBench/issues/13)
 - [Preliminary pilot findings: why LLM judges disagree](docs/pilot-findings-2026-11-05.md)
 - [25-response human calibration protocol](docs/human-calibration-pilot-25.md)
