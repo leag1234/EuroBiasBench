@@ -8,7 +8,7 @@
 
 **The primary project question is whether an open-weight model can be corrected at the weight level for a real, measured cultural/normative behavior, while preserving general capability.** The generalized discovery engine is supportive research and **must not become a prerequisite for answering that question**.
 
-The [EuroAlign POC 001 go/no-go protocol (Issue #15)](https://github.com/leag1234/EuroBiasBench/issues/15) specifies **one model (Qwen3-14B), one reproducible observed defect, a bounded direct weight-edit attempt without gradients, a separate LoRA baseline, frozen unseen prompts and safety/capability controls**. No cloud budget is committed merely by opening this issue.
+The [EuroAlign POC 001 go/no-go protocol (Issue #15)](https://github.com/leag1234/EuroBiasBench/issues/15) and [executable experimental implementation (PR #16)](https://github.com/leag1234/EuroBiasBench/pull/16) specifies **one model (Qwen3-14B), one reproducible observed defect, a bounded direct weight-edit attempt without gradients, a separate LoRA baseline, frozen unseen prompts and safety/capability controls**. No cloud budget is committed merely by opening this issue.
 
 **Research decision:** prioritize this small, falsifiable edit test; pause further expansions of the global discovery pipeline and community benchmark until a direct patch or a clear negative outcome is documented.
 
