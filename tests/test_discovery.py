@@ -79,6 +79,7 @@ class DiscoveryTests(unittest.TestCase):
                     },
                 }}}
             if args["action"] == "query":
+                self.assertNotIn("rvlimit", args)
                 titles = args["titles"].split("|")
                 return {"query": {"pages": [
                     {"title": t, "extract": "An example from 1973.", "revisions": [{"revid": 7}]}
