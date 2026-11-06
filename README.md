@@ -34,6 +34,8 @@ Researchers should be able to explore topics from **any period, geographical reg
 ## Project documents
 
 - [Architecture, scientific rules and staged roadmap](docs/global-discovery-roadmap.md)
+- [Automated Discovery POC — PR #9](https://github.com/leag1234/EuroBiasBench/pull/9) and [bounded live screening — issue #10](https://github.com/leag1234/EuroBiasBench/issues/10)
+- [Independent evidence dossier design — issue #11](https://github.com/leag1234/EuroBiasBench/issues/11), [worldwide coverage audit — issue #12](https://github.com/leag1234/EuroBiasBench/issues/12), [future model tests — issue #13](https://github.com/leag1234/EuroBiasBench/issues/13)
 - [Preliminary pilot findings: why LLM judges disagree](docs/pilot-findings-2026-11-05.md)
 - [25-response human calibration protocol](docs/human-calibration-pilot-25.md)
 - [Pilot technical implementation (PR #1)](https://github.com/leag1234/EuroBiasBench/pull/1)
