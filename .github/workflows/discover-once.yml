@@ -1,5 +1,7 @@
 name: Manual bounded Wikimedia discovery
 on:
+  push:
+    branches: [feature/global-discovery-poc]
   workflow_dispatch:
     inputs:
       target:
@@ -12,6 +14,7 @@ on:
         default: '90'
 jobs:
   discover:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[DISCOVERY_ONCE]')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -25,15 +28,15 @@ jobs:
       - name: Bound and validate request parameters
         shell: bash
         env:
-          TARGET: ${{ inputs.target }}
-          MAX_REQUESTS: ${{ inputs.max_requests }}
+          TARGET: ${{ inputs.target || '100' }}
+          MAX_REQUESTS: ${{ inputs.max_requests || '90' }}
         run: |
           [[ "$TARGET" =~ ^[0-9]+$ ]] && (( TARGET >= 1 && TARGET <= 100 ))
           [[ "$MAX_REQUESTS" =~ ^[0-9]+$ ]] && (( MAX_REQUESTS >= 1 && MAX_REQUESTS <= 90 ))
       - name: Screen Wikimedia topics (no LLM calls)
         env:
-          TARGET: ${{ inputs.target }}
-          MAX_REQUESTS: ${{ inputs.max_requests }}
+          TARGET: ${{ inputs.target || '100' }}
+          MAX_REQUESTS: ${{ inputs.max_requests || '90' }}
         run: eurobiasbench discover --live --target "$TARGET" --max-requests "$MAX_REQUESTS" --output results/discovery-run
       - uses: actions/upload-artifact@v4
         if: always()
