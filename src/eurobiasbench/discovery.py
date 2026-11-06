@@ -170,7 +170,7 @@ def discover_live(*, target: int, langs: tuple[str, ...], pages_per_language: in
         for lang in langs:
             entry = entity.get("sitelinks", {}).get(lang + "wiki")
             if entry and entry.get("title"):
-                links[lang] = {"title": entry["title"]}
+                links[lang] = {"title": entry["title"], "url": "https://" + lang + ".wikipedia.org/wiki/" + urllib.parse.quote(entry["title"].replace(" ", "_"), safe="/")}
         if len(links) < 2:
             continue
         labels = entity.get("labels", {})
@@ -296,7 +296,7 @@ def export(topics: list[dict], *, directory: str, langs: tuple[str, ...],
     return manifest
 
 
-def cli() -> None:
+def cli(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Bounded global candidate discovery (not model inference)")
     modes = parser.add_mutually_exclusive_group(required=True)
     modes.add_argument("--fixture", help="Offline JSON fixture containing synthetic topic records")
@@ -308,7 +308,7 @@ def cli() -> None:
     parser.add_argument("--signal-limit", type=int, default=20)
     parser.add_argument("--dossier-limit", type=int, default=10)
     parser.add_argument("--languages", default="en,fr,es,ar,zh,ru")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     langs = tuple(x.strip() for x in args.languages.split(",") if x.strip())
     if not langs or len(langs) != len(set(langs)) or any(x not in DEFAULT_LANGUAGES for x in langs):
         parser.error("Languages must be a nonempty unique subset of en,fr,es,ar,zh,ru")

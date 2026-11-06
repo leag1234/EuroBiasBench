@@ -18,3 +18,9 @@ jobs:
       - run: eurobiasbench preflight --mode mock --limit 2 --repeats 1
       - run: eurobiasbench run --mode mock --limit 2 --repeats 1 --output results/recovery
       - run: eurobiasbench run --mode mock --limit 2 --repeats 1 --output results/recovery --resume
+      - run: eurobiasbench discover --fixture tests/fixtures/discovery_synthetic.json --target 6 --output results/discovery-ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eurobiasbench-discovery-synthetic-smoke
+          path: results/discovery-ci/
+          retention-days: 7
