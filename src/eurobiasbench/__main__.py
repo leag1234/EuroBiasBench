@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 
 from .core import load_dataset, validate_dataset
 from .pipeline import preflight, run
@@ -19,6 +20,14 @@ def _run_args(parser: argparse.ArgumentParser) -> None:
 
 
 def main() -> None:
+    if len(sys.argv) > 1 and sys.argv[1] == "discover":
+        from .discovery import cli
+        cli(sys.argv[2:])
+        return
+    if len(sys.argv) > 1 and sys.argv[1] == "triage":
+        from .triage import main as triage_main
+        triage_main(sys.argv[2:])
+        return
     parser = argparse.ArgumentParser(prog="eurobiasbench")
     commands = parser.add_subparsers(dest="command", required=True)
     check = commands.add_parser("validate", help="Check dataset schema")

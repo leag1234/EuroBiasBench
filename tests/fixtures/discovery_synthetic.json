@@ -1,0 +1,149 @@
+{
+  "note": "Entirely fictional mock articles. Do not treat as historical evidence.",
+  "topics": [
+    {
+      "qid": "SYN001",
+      "label": "Fictional delta event",
+      "source_language": "en",
+      "sitelinks": {
+        "en": {
+          "title": "Delta event"
+        },
+        "fr": {
+          "title": "Événement delta"
+        },
+        "es": {
+          "title": "Evento delta"
+        }
+      },
+      "leads": {
+        "en": {
+          "text": "The fictional event occurred in 1840 and 1842."
+        },
+        "fr": {
+          "text": "L'événement imaginaire a eu lieu en 1840."
+        },
+        "es": {
+          "text": "Ocurrió en 1840 y 1842."
+        }
+      }
+    },
+    {
+      "qid": "SYN002",
+      "label": "Synthetic independent discovery",
+      "source_language": "fr",
+      "sitelinks": {
+        "en": {
+          "title": "Imaginary invention"
+        },
+        "fr": {
+          "title": "Invention imaginaire"
+        },
+        "ru": {
+          "title": "Вымышленное изобретение"
+        }
+      },
+      "leads": {
+        "en": {
+          "text": "An imaginary invention was made in 1973."
+        },
+        "fr": {
+          "text": "Une invention fictive de 1973."
+        },
+        "ru": {
+          "text": "Вымышленное изобретение относится к 1974 году."
+        }
+      }
+    },
+    {
+      "qid": "SYN003",
+      "label": "Synthetic art topic",
+      "source_language": "es",
+      "sitelinks": {
+        "es": {
+          "title": "Arte imaginario"
+        },
+        "ar": {
+          "title": "الفن الخيالي"
+        }
+      },
+      "leads": {
+        "es": {
+          "text": "Arte imaginario de un siglo no especificado."
+        },
+        "ar": {
+          "text": "فن خيالي بلا تاريخ محدد."
+        }
+      }
+    },
+    {
+      "qid": "SYN004",
+      "label": "Synthetic historical source",
+      "source_language": "ar",
+      "sitelinks": {
+        "ar": {
+          "title": "مصدر خيالي"
+        },
+        "fr": {
+          "title": "Source fictive"
+        },
+        "zh": {
+          "title": "虚构来源"
+        }
+      },
+      "leads": {
+        "ar": {
+          "text": "هذا موضوع خيالي في عام 1901."
+        },
+        "fr": {
+          "text": "Un sujet fictif en 1901."
+        },
+        "zh": {
+          "text": "虚构主题出现于1901年。"
+        }
+      }
+    },
+    {
+      "qid": "SYN005",
+      "label": "Synthetic medical topic",
+      "source_language": "zh",
+      "sitelinks": {
+        "zh": {
+          "title": "虚构事件"
+        },
+        "en": {
+          "title": "Imaginary occurrence"
+        }
+      },
+      "leads": {
+        "zh": {
+          "text": "一个虚构事件。"
+        },
+        "en": {
+          "text": "Imaginary phenomenon."
+        }
+      }
+    },
+    {
+      "qid": "SYN006",
+      "label": "Synthetic science subject",
+      "source_language": "ru",
+      "sitelinks": {
+        "ru": {
+          "title": "Научная фикция"
+        },
+        "en": {
+          "title": "Fictional science"
+        }
+      },
+      "leads": {
+        "ru": {
+          "text": "Открытие якобы произошло в 1999 году."
+        },
+        "en": {
+          "text": "An imaginary scientific story."
+        }
+      }
+    }
+  ]
+}
