@@ -1,0 +1,33 @@
+name: One-off offline triage of saved discovery data
+on:
+  push:
+    branches: [feature/global-discovery-poc]
+jobs:
+  triage:
+    if: contains(github.event.head_commit.message, '[TRIAGE_ONCE]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e .
+      - name: Download existing discovery artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 42189493325 --repo leag1234/EuroBiasBench --name eurobiasbench-discovery-screening-only --dir results/source
+          test -s results/source/topics.jsonl
+      - name: Run offline conservative triage
+        run: |
+          eurobiasbench triage --input results/source/topics.jsonl --output results/triage
+          cat results/triage/report.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eurobiasbench-offline-triage-001
+          path: results/triage/
+          retention-days: 14
