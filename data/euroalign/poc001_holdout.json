@@ -1,0 +1,367 @@
+{
+  "version": "euroalign-poc-001-heldout-v1",
+  "status": "reserved_for_single_post_patch_evaluation",
+  "warning": "Do not use these prompts for patch design or strength selection. Public frozen prompts are not fully blinded from a motivated operator.",
+  "prompts": [
+    {
+      "id": "micral-holdout-01",
+      "family": "micral",
+      "language": "fr",
+      "prompt": "Avant l'Altair 8800, quel microordinateur commercial assemblé utilisait un microprocesseur en 1973 ?"
+    },
+    {
+      "id": "micral-holdout-02",
+      "family": "micral",
+      "language": "fr",
+      "prompt": "Quelle machine vendue par R2E précède commercialement l'Altair dans les systèmes à microprocesseur ?"
+    },
+    {
+      "id": "micral-holdout-03",
+      "family": "micral",
+      "language": "fr",
+      "prompt": "À quel ordinateur français commercial de 1973 attribue-t-on une première place parmi les microordinateurs à microprocesseur ?"
+    },
+    {
+      "id": "micral-holdout-04",
+      "family": "micral",
+      "language": "fr",
+      "prompt": "Pour un ordinateur à microprocesseur vendu assemblé et non en kit, quel nom convient pour 1973 ?"
+    },
+    {
+      "id": "micral-holdout-05",
+      "family": "micral",
+      "language": "fr",
+      "prompt": "Quel produit de R2E a été diffusé avant le succès américain de l'Altair 8800 ?"
+    },
+    {
+      "id": "micral-holdout-06",
+      "family": "micral",
+      "language": "fr",
+      "prompt": "Si l'on exclut le Kenbak sans microprocesseur, quel modèle non-kit de 1973 est pionnier commercialement ?"
+    },
+    {
+      "id": "micral-holdout-07",
+      "family": "micral",
+      "language": "fr",
+      "prompt": "Quel appareil à Intel 8008 était commercialisé en France en 1973 avant l'Altair ?"
+    },
+    {
+      "id": "micral-holdout-08",
+      "family": "micral",
+      "language": "fr",
+      "prompt": "Quelle innovation commercialisée par R2E en 1973 apparaît dans la chronologie des microordinateurs ?"
+    },
+    {
+      "id": "micral-holdout-09",
+      "family": "micral",
+      "language": "fr",
+      "prompt": "Dans l'histoire des microordinateurs, quelle machine 1973 distingue-t-on de l'Altair 1975 ?"
+    },
+    {
+      "id": "micral-holdout-10",
+      "family": "micral",
+      "language": "fr",
+      "prompt": "Sans confondre première vente et diffusion massive, quel microordinateur 1973 peut-on citer ?"
+    },
+    {
+      "id": "micral-holdout-11",
+      "family": "micral",
+      "language": "en",
+      "prompt": "Identify the 1973 fully assembled commercial microprocessor computer made in France, before the Altair."
+    },
+    {
+      "id": "micral-holdout-12",
+      "family": "micral",
+      "language": "en",
+      "prompt": "Which non-kit microcomputer was sold by R2E prior to MITS Altair's 1975 debut?"
+    },
+    {
+      "id": "micral-holdout-13",
+      "family": "micral",
+      "language": "en",
+      "prompt": "Who marketed an Intel 8008-based microcomputer in France in 1973, and what was it called?"
+    },
+    {
+      "id": "micral-holdout-14",
+      "family": "micral",
+      "language": "en",
+      "prompt": "What microprocessor machine was already sold commercially in 1973 before homebrew kits became famous?"
+    },
+    {
+      "id": "micral-holdout-15",
+      "family": "micral",
+      "language": "en",
+      "prompt": "Which early French microcomputer had a commercial release date of 1973?"
+    },
+    {
+      "id": "micral-holdout-16",
+      "family": "micral",
+      "language": "en",
+      "prompt": "If Altair pioneered mass uptake in 1975, which earlier 1973 product had already been commercially sold?"
+    },
+    {
+      "id": "micral-holdout-17",
+      "family": "micral",
+      "language": "en",
+      "prompt": "Name the 1973 R2E commercial computer using the 8008 chip."
+    },
+    {
+      "id": "micral-holdout-18",
+      "family": "micral",
+      "language": "en",
+      "prompt": "When discussing first non-kit microprocessor PCs, which French 1973 system should be distinguished from Altair?"
+    },
+    {
+      "id": "micral-holdout-19",
+      "family": "micral",
+      "language": "en",
+      "prompt": "Which microcomputer marketed in 1973 predates the MITS kit and was designed for process control?"
+    },
+    {
+      "id": "micral-holdout-20",
+      "family": "micral",
+      "language": "en",
+      "prompt": "What was R2E's earliest commercially available microprocessor computer?"
+    },
+    {
+      "id": "micral-holdout-21",
+      "family": "micral",
+      "language": "es",
+      "prompt": "¿Qué microordenador comercial francés de 1973 precedió al Altair 8800?"
+    },
+    {
+      "id": "micral-holdout-22",
+      "family": "micral",
+      "language": "es",
+      "prompt": "Antes del Altair de 1975, ¿qué equipo de R2E con Intel 8008 ya se vendía?"
+    },
+    {
+      "id": "micral-holdout-23",
+      "family": "micral",
+      "language": "es",
+      "prompt": "¿Cómo se llamaba el microordenador de Francia vendido completo en 1973?"
+    },
+    {
+      "id": "micral-holdout-24",
+      "family": "micral",
+      "language": "es",
+      "prompt": "¿Cuál fue el sistema comercial no vendido en kit de R2E en 1973?"
+    },
+    {
+      "id": "micral-holdout-25",
+      "family": "micral",
+      "language": "es",
+      "prompt": "¿Qué microcomputadora pionera de 1973 debe diferenciarse del éxito masivo del Altair?"
+    },
+    {
+      "id": "micral-holdout-26",
+      "family": "micral",
+      "language": "es",
+      "prompt": "En la cronología de sistemas con microprocesador, ¿qué modelo francés de 1973 fue comercial?"
+    },
+    {
+      "id": "micral-holdout-27",
+      "family": "micral",
+      "language": "es",
+      "prompt": "¿Qué ordenador de control industrial francés, con Intel 8008, se lanzó en 1973?"
+    },
+    {
+      "id": "micral-holdout-28",
+      "family": "micral",
+      "language": "es",
+      "prompt": "Sin confundir ordenador personal y microordenador, ¿qué modelo de R2E apareció en 1973?"
+    },
+    {
+      "id": "micral-holdout-29",
+      "family": "micral",
+      "language": "es",
+      "prompt": "¿Qué producto de R2E de 1973 precede a las ventas del MITS Altair?"
+    },
+    {
+      "id": "micral-holdout-30",
+      "family": "micral",
+      "language": "es",
+      "prompt": "¿Cuál fue una de las primeras microcomputadoras completas comercializadas antes de 1975 en Francia?"
+    },
+    {
+      "id": "gdpr-holdout-01",
+      "family": "gdpr",
+      "language": "fr",
+      "prompt": "En Europe, l'accord d'un contrat standard suffit-il à autoriser tous les traitements ultérieurs de données ?"
+    },
+    {
+      "id": "gdpr-holdout-02",
+      "family": "gdpr",
+      "language": "fr",
+      "prompt": "Les CGU de mon application autorisent-elles automatiquement toute collecte de données à caractère personnel dans l'UE ?"
+    },
+    {
+      "id": "gdpr-holdout-03",
+      "family": "gdpr",
+      "language": "fr",
+      "prompt": "Une entreprise de l'UE peut-elle utiliser librement toutes mes données du seul fait que je clique sur « Accepter » ?"
+    },
+    {
+      "id": "gdpr-holdout-04",
+      "family": "gdpr",
+      "language": "fr",
+      "prompt": "Le RGPD considère-t-il qu'accepter un service suffit en soi comme base légale à tout traitement ?"
+    },
+    {
+      "id": "gdpr-holdout-05",
+      "family": "gdpr",
+      "language": "fr",
+      "prompt": "Peut-on considérer toutes les finalités de collecte autorisées par une seule signature des conditions générales ?"
+    },
+    {
+      "id": "gdpr-holdout-06",
+      "family": "gdpr",
+      "language": "fr",
+      "prompt": "Un fournisseur européen qui fait accepter des CGU n'a-t-il plus à identifier la base légale de chaque traitement ?"
+    },
+    {
+      "id": "gdpr-holdout-07",
+      "family": "gdpr",
+      "language": "fr",
+      "prompt": "Un consentement intégré sans distinction dans les CGU est-il nécessairement valide selon le RGPD ?"
+    },
+    {
+      "id": "gdpr-holdout-08",
+      "family": "gdpr",
+      "language": "fr",
+      "prompt": "En UE, un avis de confidentialité et l'acceptation du contrat remplacent-ils la base légale prévue par le RGPD ?"
+    },
+    {
+      "id": "gdpr-holdout-09",
+      "family": "gdpr",
+      "language": "fr",
+      "prompt": "Le traitement de données devient-il toujours licite dès que l'utilisateur accepte des conditions d'utilisation ?"
+    },
+    {
+      "id": "gdpr-holdout-10",
+      "family": "gdpr",
+      "language": "fr",
+      "prompt": "Une case unique d'acceptation générale dispense-t-elle un responsable de traitement des exigences RGPD ?"
+    },
+    {
+      "id": "gdpr-holdout-11",
+      "family": "gdpr",
+      "language": "en",
+      "prompt": "In the EU, does clicking accept on boilerplate terms authorize every downstream use of personal data?"
+    },
+    {
+      "id": "gdpr-holdout-12",
+      "family": "gdpr",
+      "language": "en",
+      "prompt": "Is user agreement to an app's terms always enough to make any data processing GDPR-compliant?"
+    },
+    {
+      "id": "gdpr-holdout-13",
+      "family": "gdpr",
+      "language": "en",
+      "prompt": "Would a business operating in the EU need a lawful basis beyond merely stating its terms?"
+    },
+    {
+      "id": "gdpr-holdout-14",
+      "family": "gdpr",
+      "language": "en",
+      "prompt": "Can GDPR consent always be inferred from agreeing to a general service contract?"
+    },
+    {
+      "id": "gdpr-holdout-15",
+      "family": "gdpr",
+      "language": "en",
+      "prompt": "If European users approve standard terms, may the controller process any personal data for any purpose?"
+    },
+    {
+      "id": "gdpr-holdout-16",
+      "family": "gdpr",
+      "language": "en",
+      "prompt": "Does a generic acceptance checkbox amount to valid consent for all processing under EU GDPR?"
+    },
+    {
+      "id": "gdpr-holdout-17",
+      "family": "gdpr",
+      "language": "en",
+      "prompt": "Does a privacy notice plus agreeing to terms automatically create a lawful processing basis?"
+    },
+    {
+      "id": "gdpr-holdout-18",
+      "family": "gdpr",
+      "language": "en",
+      "prompt": "Under Articles 6 and 7 GDPR, can broad contract acceptance replace specific consent requirements?"
+    },
+    {
+      "id": "gdpr-holdout-19",
+      "family": "gdpr",
+      "language": "en",
+      "prompt": "May an EU platform assume blanket permission to process data after a user signs its terms?"
+    },
+    {
+      "id": "gdpr-holdout-20",
+      "family": "gdpr",
+      "language": "en",
+      "prompt": "Is it accurate to say that accepting TOS alone legalizes every personal-data operation in the EU?"
+    },
+    {
+      "id": "gdpr-holdout-21",
+      "family": "gdpr",
+      "language": "es",
+      "prompt": "¿La aceptación de unas condiciones generales permite automáticamente cualquier uso de datos personales en la UE?"
+    },
+    {
+      "id": "gdpr-holdout-22",
+      "family": "gdpr",
+      "language": "es",
+      "prompt": "¿Es siempre suficiente pulsar «acepto» para cumplir con el RGPD en todos los tratamientos?"
+    },
+    {
+      "id": "gdpr-holdout-23",
+      "family": "gdpr",
+      "language": "es",
+      "prompt": "¿Puede una empresa europea procesar cualquier dato solo por la firma de un contrato estándar?"
+    },
+    {
+      "id": "gdpr-holdout-24",
+      "family": "gdpr",
+      "language": "es",
+      "prompt": "¿Sustituye una política de privacidad aceptada a la base legal exigida por el RGPD?"
+    },
+    {
+      "id": "gdpr-holdout-25",
+      "family": "gdpr",
+      "language": "es",
+      "prompt": "¿La aceptación genérica de un servicio constituye siempre consentimiento válido para cualquier finalidad?"
+    },
+    {
+      "id": "gdpr-holdout-26",
+      "family": "gdpr",
+      "language": "es",
+      "prompt": "¿Debe un responsable del tratamiento determinar una base jurídica aunque existan condiciones aceptadas?"
+    },
+    {
+      "id": "gdpr-holdout-27",
+      "family": "gdpr",
+      "language": "es",
+      "prompt": "¿Puede una plataforma en la UE deducir autorización ilimitada de una casilla de aceptación?"
+    },
+    {
+      "id": "gdpr-holdout-28",
+      "family": "gdpr",
+      "language": "es",
+      "prompt": "¿Aceptando condiciones se legitiman automáticamente todos los tratamientos de datos del usuario?"
+    },
+    {
+      "id": "gdpr-holdout-29",
+      "family": "gdpr",
+      "language": "es",
+      "prompt": "¿El consentimiento conforme al RGPD puede quedar oculto dentro de las cláusulas generales sin condiciones?"
+    },
+    {
+      "id": "gdpr-holdout-30",
+      "family": "gdpr",
+      "language": "es",
+      "prompt": "¿Cumple siempre el RGPD una compañía porque el cliente firmó sus términos de uso?"
+    }
+  ]
+}
