@@ -115,7 +115,7 @@ def fetch_intro_pages(topics: list[dict], langs: tuple[str, ...], budget: Reques
                 "action": "query", "prop": "extracts|revisions",
                 "titles": "|".join(titles),
                 "exintro": 1, "explaintext": 1, "exchars": 800,
-                "rvprop": "ids|timestamp", "rvlimit": 1,
+                "rvprop": "ids|timestamp",
                 "format": "json", "formatversion": 2,
             })
             found = {
