@@ -4,6 +4,14 @@
 
 > **Research status — 6 November 2026:** exploratory evaluation infrastructure exists in [PR #1](https://github.com/leag1234/EuroBiasBench/pull/1), the first pilot identified severe disagreement between LLM judges, and a 25-response human calibration has been planned but **not yet performed**. An automated discovery proof of concept is the next technical workstream. No scientifically validated overall model ranking is claimed.
 
+## Immediate priority: EuroAlign weight-editing feasibility (P0)
+
+**The primary project question is whether an open-weight model can be corrected at the weight level for a real, measured cultural/normative behavior, while preserving general capability.** The generalized discovery engine is supportive research and **must not become a prerequisite for answering that question**.
+
+The [EuroAlign POC 001 go/no-go protocol (Issue #15)](https://github.com/leag1234/EuroBiasBench/issues/15) specifies **one model (Qwen3-14B), one reproducible observed defect, a bounded direct weight-edit attempt without gradients, a separate LoRA baseline, frozen unseen prompts and safety/capability controls**. No cloud budget is committed merely by opening this issue.
+
+**Research decision:** prioritize this small, falsifiable edit test; pause further expansions of the global discovery pipeline and community benchmark until a direct patch or a clear negative outcome is documented.
+
 ## Mission
 
 **Discover, document, and test model behavior across world history and knowledge, not just a hand-picked set of political controversies.** EuroBiasBench investigates factual errors, missing material information, source-selection asymmetries, narrative framing, unjustified refusals and miscalibrated uncertainty. It distinguishes the *truth of a proposition* from its *narrative salience* and from the *origin of the evidence used to support it*.
